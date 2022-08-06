@@ -1,4 +1,4 @@
-package com.example.nechtogame.code;
+package com.example.nechtogame.core;
 
 
 import lombok.AllArgsConstructor;

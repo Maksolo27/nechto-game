@@ -1,6 +1,6 @@
-package com.example.nechtogame.code;
+package com.example.nechtogame.core;
 
-import com.example.nechtogame.code.cards.AbstractEventCard;
+import com.example.nechtogame.core.cards.AbstractEventCard;
 import lombok.Data;
 import lombok.Getter;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class Player implements GameMember {
+public class Bot implements GameMember {
 
     @Getter
     private List<AbstractEventCard> cardList = new ArrayList<> ();

@@ -1,6 +1,6 @@
-package com.example.nechtogame.code;
+package com.example.nechtogame.core;
 
-import com.example.nechtogame.code.cards.AbstractEventCard;
+import com.example.nechtogame.core.cards.AbstractEventCard;
 
 import java.util.List;
 
