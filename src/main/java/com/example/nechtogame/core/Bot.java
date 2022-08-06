@@ -18,4 +18,9 @@ public class Bot implements GameMember {
     public AbstractEventCard getCard(int index) {
         return cardList.get (index);
     }
+
+    @Override
+    public void addToCardList(AbstractEventCard abstractEventCard) {
+        cardList.add (abstractEventCard);
+    }
 }

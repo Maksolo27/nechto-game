@@ -13,24 +13,44 @@ import java.util.*;
 public class CardService {
 
     private static final int CARD_DECK_SIZE = 88;
+    private static final int DEFAULT_NUMBER_OF_CARDS_IN_HAND = 4;
     private final BeanFactory beanFactory;
+    private final PlayerService playerService;
 
     @Autowired
-    CardService(BeanFactory beanFactory) {
+    CardService(BeanFactory beanFactory, PlayerService playerService) {
         this.beanFactory = beanFactory;
+        this.playerService = playerService;
     }
 
     public List<AbstractEventCard> shuffleCards(){
         List<AbstractEventCard> cardList = fillDeck ();
         List<AbstractEventCard> resultCardList = new ArrayList<> ();
+        boolean[] indexes = new boolean[cardList.size ()];
         for (int i = 0; i < cardList.size (); i++) {
             int randomIndex = (int) Math.floor(Math.random() * ( cardList.size () - 1) + 1);
-            resultCardList.add (cardList.get (randomIndex));
-            cardList.remove (randomIndex);
+            if (!indexes[randomIndex]) {
+                resultCardList.add (cardList.get (randomIndex));
+                indexes[randomIndex] = true;
+            } else {
+                int pseudoRandomIndex = findFalseInArray (indexes);
+                resultCardList.add (cardList.get (pseudoRandomIndex));
+                indexes[pseudoRandomIndex] = true;
+            }
         }
         return resultCardList;
     }
 
+    private int findFalseInArray(boolean[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if(array[i]){
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    // TODO: Refactor
     private List<AbstractEventCard> fillDeck() {
         CardType[] cardTypes = CardType.values ();
         List<CardType> cardTypeList = new ArrayList<> ();
@@ -51,6 +71,21 @@ public class CardService {
             }
         }
         return cardDeck;
+    }
+
+    public void distributeCards(){
+        List<GameMember> memberList = playerService.getGameMemberList ();
+        List<AbstractEventCard> cards = shuffleCards ();
+        int j = 0;
+        int k = 0;
+        while (j < memberList.size ()) {
+            GameMember member = memberList.get (j);
+            for (int i = 0; i < DEFAULT_NUMBER_OF_CARDS_IN_HAND; i++) {
+                member.addToCardList (cards.get (k));
+                k++;
+            }
+            j++;
+        }
     }
 
     public List<AbstractEventCard> getCardListOfGameMember(GameMember gameMember) {

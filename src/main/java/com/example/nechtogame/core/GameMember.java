@@ -14,4 +14,6 @@ public interface GameMember {
     void setOnQuarantine(boolean onQuarantine);
 
     AbstractEventCard getCard(int index);
+
+    void addToCardList(AbstractEventCard abstractEventCard);
 }
