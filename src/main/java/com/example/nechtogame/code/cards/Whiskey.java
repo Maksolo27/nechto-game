@@ -1,7 +1,7 @@
-package com.example.nechtogame.entities.cards;
+package com.example.nechtogame.code.cards;
 
-import com.example.nechtogame.entities.CardType;
-import com.example.nechtogame.entities.GameMember;
+import com.example.nechtogame.code.CardType;
+import com.example.nechtogame.code.GameMember;
 import com.example.nechtogame.services.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

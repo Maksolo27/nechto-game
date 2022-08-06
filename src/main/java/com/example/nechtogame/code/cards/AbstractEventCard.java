@@ -1,4 +1,4 @@
-package com.example.nechtogame.entities.cards;
+package com.example.nechtogame.code.cards;
 
 import lombok.Data;
 

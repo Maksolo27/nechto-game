@@ -1,7 +1,7 @@
 package com.example.nechtogame.services;
 
-import com.example.nechtogame.entities.CardType;
-import com.example.nechtogame.entities.cards.AbstractEventCard;
+import com.example.nechtogame.code.CardType;
+import com.example.nechtogame.code.cards.AbstractEventCard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

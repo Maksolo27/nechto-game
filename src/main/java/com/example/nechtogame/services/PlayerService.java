@@ -1,9 +1,8 @@
 package com.example.nechtogame.services;
 
-import com.example.nechtogame.entities.Bot;
-import com.example.nechtogame.entities.GameMember;
-import com.example.nechtogame.entities.Player;
-import com.example.nechtogame.entities.cards.AbstractEventCard;
+import com.example.nechtogame.code.Bot;
+import com.example.nechtogame.code.GameMember;
+import com.example.nechtogame.code.Player;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

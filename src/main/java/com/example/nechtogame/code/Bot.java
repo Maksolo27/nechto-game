@@ -1,6 +1,6 @@
-package com.example.nechtogame.entities;
+package com.example.nechtogame.code;
 
-import com.example.nechtogame.entities.cards.AbstractEventCard;
+import com.example.nechtogame.code.cards.AbstractEventCard;
 import lombok.Data;
 import lombok.Getter;
 
