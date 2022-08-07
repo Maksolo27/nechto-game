@@ -12,7 +12,6 @@ import java.util.*;
 @Service
 public class CardService {
 
-    private static final int CARD_DECK_SIZE = 88;
     private static final int DEFAULT_NUMBER_OF_CARDS_IN_HAND = 4;
     private final BeanFactory beanFactory;
     private final PlayerService playerService;
@@ -50,6 +49,9 @@ public class CardService {
         return 0;
     }
 
+    /**
+     * Use bean factory to allow lazy initialization.
+     */
     // TODO: Refactor
     private List<AbstractEventCard> fillDeck() {
         CardType[] cardTypes = CardType.values ();

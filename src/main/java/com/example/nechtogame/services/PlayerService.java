@@ -31,11 +31,11 @@ public class PlayerService {
     }
 
     public List<AbstractEventCard> getCardsOfPlayer(){
-        GameMember player = LIST_OF_GAME_MEMBERS.stream ()
+        return LIST_OF_GAME_MEMBERS.stream ()
                 .filter (gameMember -> gameMember.getClass () == Player.class)
                 .collect(Collectors.toList())
-                .get (0);
-        return player.getCardList ();
+                .get (0)
+                .getCardList ();
     }
 
 
