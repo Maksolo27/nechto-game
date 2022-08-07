@@ -23,7 +23,7 @@ public class CardService {
         this.playerService = playerService;
     }
 
-    public List<AbstractEventCard> shuffleCards(){
+    public List<AbstractEventCard> shuffleCards() {
         List<AbstractEventCard> cardList = fillDeck ();
         List<AbstractEventCard> resultCardList = new ArrayList<> ();
         boolean[] indexes = new boolean[cardList.size ()];
@@ -73,7 +73,7 @@ public class CardService {
         return cardDeck;
     }
 
-    public void distributeCards(){
+    public void distributeCards() {
         List<GameMember> memberList = playerService.getGameMemberList ();
         List<AbstractEventCard> cards = shuffleCards ();
         int j = 0;

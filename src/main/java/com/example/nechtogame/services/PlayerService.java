@@ -3,10 +3,12 @@ package com.example.nechtogame.services;
 import com.example.nechtogame.core.Bot;
 import com.example.nechtogame.core.GameMember;
 import com.example.nechtogame.core.Player;
+import com.example.nechtogame.core.cards.AbstractEventCard;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PlayerService {
@@ -26,6 +28,14 @@ public class PlayerService {
 
     public List<GameMember> getGameMemberList(){
         return LIST_OF_GAME_MEMBERS;
+    }
+
+    public List<AbstractEventCard> getCardsOfPlayer(){
+        GameMember player = LIST_OF_GAME_MEMBERS.stream ()
+                .filter (gameMember -> gameMember.getClass () == Player.class)
+                .collect(Collectors.toList())
+                .get (0);
+        return player.getCardList ();
     }
 
 
