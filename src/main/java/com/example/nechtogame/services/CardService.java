@@ -15,6 +15,7 @@ public class CardService {
     private static final int DEFAULT_NUMBER_OF_CARDS_IN_HAND = 4;
     private final BeanFactory beanFactory;
     private final PlayerService playerService;
+    public List<AbstractEventCard> playingDeck;
 
     @Autowired
     CardService(BeanFactory beanFactory, PlayerService playerService) {
@@ -84,10 +85,12 @@ public class CardService {
             GameMember member = memberList.get (j);
             for (int i = 0; i < DEFAULT_NUMBER_OF_CARDS_IN_HAND; i++) {
                 member.addToCardList (cards.get (k));
+                cards.remove(k);
                 k++;
             }
             j++;
         }
+        playingDeck = cards;
     }
 
     public List<AbstractEventCard> getCardListOfGameMember(GameMember gameMember) {
