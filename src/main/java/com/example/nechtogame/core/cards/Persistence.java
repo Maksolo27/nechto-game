@@ -3,9 +3,10 @@ package com.example.nechtogame.core.cards;
 import com.example.nechtogame.core.CardType;
 import com.example.nechtogame.core.GameMember;
 import com.example.nechtogame.services.CardService;
-import com.example.nechtogame.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Persistence extends AbstractEventCard{
 
     private final String name = "Persistence";
@@ -18,15 +19,18 @@ public class Persistence extends AbstractEventCard{
     public void apply(GameMember gameMember){
         int chosenCardIndex = 0;
         for (int i = 0; i < 3; i++) {
-            cardService.playingDeck.get(i);
+            // result of method is isgnored
+            cardService.getPlayingDeck ().get(i);
         }
 
         switch (chosenCardIndex){
-            case 1 : gameMember.addToCardList(cardService.playingDeck.get(0));
+            // You are using first cards from all deck
+            // I think better will be if we will use last 3 card from deck
+            case 1 : gameMember.addToCardList(cardService.getPlayingDeck ().get(0));
             break;
-            case 2 : gameMember.addToCardList(cardService.playingDeck.get(1));
+            case 2 : gameMember.addToCardList(cardService.getPlayingDeck ().get(1));
             break;
-            case 3 : gameMember.addToCardList(cardService.playingDeck.get(2));
+            case 3 : gameMember.addToCardList(cardService.getPlayingDeck ().get(2));
             break;
         }
     }

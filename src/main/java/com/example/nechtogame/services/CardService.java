@@ -3,6 +3,7 @@ package com.example.nechtogame.services;
 import com.example.nechtogame.core.CardType;
 import com.example.nechtogame.core.GameMember;
 import com.example.nechtogame.core.cards.*;
+import lombok.Getter;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ public class CardService {
     private static final int DEFAULT_NUMBER_OF_CARDS_IN_HAND = 4;
     private final BeanFactory beanFactory;
     private final PlayerService playerService;
-    public List<AbstractEventCard> playingDeck;
+    @Getter
+    private List<AbstractEventCard> playingDeck;
 
     @Autowired
     CardService(BeanFactory beanFactory, PlayerService playerService) {
